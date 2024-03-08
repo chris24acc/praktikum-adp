@@ -21,4 +21,3 @@ def luas_permukaan_prisma_segitiga():
 
 luas_permukaan_prisma_segitiga()
 #warning:program tidak mendeteksi kesalahan input angka yang menyebabkan tidak membentuk prisma segitiga
-
