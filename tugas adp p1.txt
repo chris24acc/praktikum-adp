@@ -3,7 +3,7 @@
 #nim: 2310432010
 #kelas:matematika/c
 #luas permukaan dan volume prisma segitiga
-def luas_permukaan_prisma_segitiga():
+def luas_permukaan_volume_prisma_segitiga():
     sisi1=float(input("masukkan sisi 1 segitiga= "))
     sisi2=float(input("masukkan sisi 2 segitiga= "))
     sisi3=float(input("masukkan sisi 3 segitiga= "))
