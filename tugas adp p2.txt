@@ -30,6 +30,7 @@ int main(){
     cout<< "\nHarga paket (Rp"<<harga<< ") + "<< "ongkir (Rp"<<ongkir<<") = "<< "Rp"<<total<<"\n";
     cout<<"Jadi total biaya yang harus kamu bayar adalah Rp"<<total;
     cout<< "\n\nTerima Kasih Sudah Memesan Paket Kami \nTunggu Sebentar Yaa... \n\n";
+    if (total==0){ cout<<"WARNING!!! PROGRAM ERROR!!!\nWARNING!!! PROGRAM ERROR!!!\nWARNING!!! PROGRAM ERROR!!!\nPESANAN TIDAK BISA DIANTAR!" ;}
 
 }
 
