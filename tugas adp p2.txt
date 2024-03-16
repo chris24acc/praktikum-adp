@@ -4,10 +4,10 @@ using namespace std;
 
 int main(){
     int pil, jarak, harga, ongkir, total;
-    string nama;
+    char nama[30];
 
     cout<< "Selamat datang di layanan pesan-antar makanan online! \n";
-    cout<< "Atas nama siapa?";cin>>nama;
+    cout<< "Atas nama siapa? ";gets(nama);
     cout<< "Mau pesan apa?\n1.Paket A (Rp25000)\n2.Paket B (Rp30000)\n3.Paket C (Rp45000)\n";
     cin>>pil;
 
@@ -36,4 +36,3 @@ int main(){
 
 
 }
-
