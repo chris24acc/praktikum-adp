@@ -1,0 +1,66 @@
+def banyak_data():
+    n = int(input('Masukkan banyaknya data: '))
+    data = []
+    for i in range(1, n + 1):
+        angka = float(input(f'Data ke-{i} : '))
+        data.append(angka)
+    return data
+def hitung_jumlah(data):
+    total = 0
+    for angka in data:
+        total += angka
+    return total
+def hitung_mean(data):
+    total = hitung_jumlah(data)
+    mean = total / len(data)
+    return mean
+def hitung_modus(data):
+    elemen_unik = []
+    frekuensi = []
+    maks_frekuensi = 0
+    modus = []
+    for angka in data:
+        found = False
+        for i in range(len(elemen_unik)):
+            if elemen_unik[i] == angka:
+                frekuensi[i] += 1
+                found = True
+                break
+        if not found:
+            elemen_unik.append(angka)
+            frekuensi.append(1)
+    for jumlah in frekuensi:
+        if jumlah > maks_frekuensi:
+            maks_frekuensi = jumlah
+    if maks_frekuensi == 1:
+        return []
+    for i in range(len(elemen_unik)):
+        if frekuensi[i] == maks_frekuensi:
+            modus.append(elemen_unik[i])
+    return modus
+def hitung_varians(data):
+    mean = hitung_mean(data)
+    total = 0
+    for angka in data:
+        total += (angka - mean) ** 2
+    varians = total / len(data)
+    return varians
+data_masukan = banyak_data()
+mean_asli = "{:.2f}".format(hitung_mean(data_masukan))
+modus_asli = str(hitung_modus(data_masukan))
+varians_asli = "{:.2f}".format(hitung_varians(data_masukan))
+mean_panjang = len(mean_asli)
+modus_panjang = len(modus_asli)
+varians_panjang = len(varians_asli)
+max_panjang = mean_panjang
+if modus_panjang > max_panjang:
+    max_panjang = modus_panjang
+if varians_panjang > max_panjang:
+    max_panjang = varians_panjang
+print("---------------------")
+print("| Statistik  | Nilai|")
+print("---------------------")
+print("| Mean       | {:<{}} |".format(mean_asli, max_panjang))
+print("| Modus      | {:<{}} |".format(modus_asli, max_panjang))
+print("| Variance   | {:<{}} |".format(varians_asli, max_panjang))
+print("----------------------")
