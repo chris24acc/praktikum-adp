@@ -1,0 +1,76 @@
+def untukfile():
+    file = open('data_film.txt', 'a')
+    file.close()
+def md():
+    data_film = {}
+    with open('data_film.txt', 'r') as file:
+        komp = file.readlines()
+        for i in komp:
+            j, p, s, t = i.strip().split(';')
+            data_film[j] = {'penulis': p, 'sutradara': s, 'tahun rilis': t}
+    return data_film
+def sd(data_film):
+    with open('data_film.txt', 'w') as file:
+        for j, v in data_film.items():
+            p, s, t = v['penulis'], v['sutradara'], v['tahun rilis']
+            file.write(f"{j};{p};{s};{t}\n")
+    print("oke, tersave...")
+def pd(data_film):
+    j = input("Masukkan judul film: ")
+    if j in data_film:
+        print("Film yang itu udah ada yaa")
+        return
+    p = input("Masukkan nama penulis skenario: ")
+    s = input("Masukkan nama sutradara: ")
+    t = input("Masukkan tahun rilis: ")
+    data_film[j] = {'penulis': p, 'sutradara': s, 'tahun rilis': t}
+    sd(data_film)
+def hd(data_film):
+    j = input("Masukkan judul film yang mau kamu dihapus: ")
+    if j in data_film:
+        del data_film[j]
+        sd(data_film)
+        print("Hore! Kamu berhasil menghapus data film.")
+    else:
+        print("Error, 404 Not Found.")
+def ed(data_film):
+    j = input("Masukkan judul film yang ingin diedit: ")
+    if j in data_film:
+        print("Data film saat ini:")
+        print(data_film[j])
+        p = input("Masukkan nama penulis skenario (kalau masih sama enter aja..): ")
+        s = input("Masukkan nama sutradara (kalau masih sama enter aja..): ")
+        t = input("Masukkan tahun rilis (kalau masih sama enter aja..): ")
+        if p:
+            data_film[j]['penulis'] = p
+        if s:
+            data_film[j]['sutradara'] = s
+        if t:
+            data_film[j]['tahun rilis'] = t
+        sd(data_film)
+        print("Hore! Kamu berhasil mengedit data film.")
+    else:
+        print("Yahh, data film yang mau kamu edit ga ketemu..")
+def td(data_film):
+    if not data_film:
+        print("Yahh, data film yang mau kamu tampilkan ga ketemu..")
+        return
+    for j, v in data_film.items():
+        p, s, t = v['penulis'], v['sutradara'], v['tahun rilis']
+        print(f"{'-' * 40}\n==> Judul: {j}\n    Penulis: {p}\n    Sutradara: {s}\n    Tahun: {t}\n{'-' * 40}")
+def main():
+    untukfile()
+    data_film = md()
+    menu = {'1': ('Tambah data film', pd), '2': ('Hapus data film', hd), '3': ('Edit data film', ed), '4': ('Tampilkan data film', td)}
+    pil = ''
+    while pil != '5':
+        print("\nMenu:")
+        for key in menu:
+            print(f"{key}. {menu[key][0]}")
+        print("5. Keluar")
+        pil = input("Pilih menu(1-5): ")
+        if pil in menu:
+            menu[pil][1](data_film)
+        elif pil != '5':
+            print("Pilih yang benar dong maniezzz")
+main()
