@@ -1,0 +1,23 @@
+from termcolor import cprint
+for i in range (4):
+    cprint(" "*3, "white", "on_red", end="  ")
+cprint(" "*9,"white", "on_red")
+cprint(" "*3, "white", "on_red", end="  ")
+cprint(" "*3, "white", "on_red", end="  ")
+cprint(" "*3, "white", "on_red", end="  ")
+print(" "*3, end="  ")
+print(" "*3)
+for i in range(2):
+    cprint(" "*3, "white", "on_red", end="  ")
+    cprint(" "*3, "white", "on_red", end="  ")
+    cprint(" "*3, "white", "on_red", end="  ")
+    cprint(" "*3, "white", "on_dark_grey", end="  ")
+    cprint(" "*3, "white", "on_red", end="  ")
+    print(" "*3)
+for i in range(2):
+    cprint(" "*3, "white", "on_red", end="  ")
+    print(" "*3, end="  ")
+    cprint(" "*3, "white", "on_red", end="  ")
+    cprint(" "*3, "white", "on_dark_grey", end="  ")
+    cprint(" "*3, "white", "on_red", end="  ")
+    print(" "*3)
